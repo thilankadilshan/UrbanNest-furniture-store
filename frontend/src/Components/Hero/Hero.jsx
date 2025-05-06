@@ -1,31 +1,21 @@
 import React from "react";
 import "./Hero.css";
-import hand_icon from "../Assets/hand_icon.png";
-import arrow_icon from "../Assets/arrow.png";
-import hero_image from "../Assets/hero_image.png";
+import heroImage from "../Assets/hero_furniture.jpg";
 
 const Hero = () => {
   return (
-    <div className="hero">
-      <div className="hero-left">
-        <h2>New Arrivels Only</h2>
-        <div>
-          <div className="hero-hand-icon">
-            <p>new</p>
-            <img src={hand_icon} alt="" />
-          </div>
-          <p>collection</p>
-          <p>for everyone,</p>
+    <section className="hero">
+      <div className="hero-content">
+        <div className="hero-text">
+          <h1>Style Your Home with Elegance</h1>
+          <p>Discover timeless furniture crafted for comfort and design.</p>
+          <button className="shop-now-btn">Shop Now</button>
         </div>
-        <div className="hero-latest-btn">
-          <div>Latest Collection</div>
-          <img src={arrow_icon} alt="" />
+        <div className="hero-image">
+          <img src={heroImage} alt="Furniture Display" />
         </div>
       </div>
-      <div className="hero-right">
-        <img src={hero_image} alt="" />
-      </div>
-    </div>
+    </section>
   );
 };
 
