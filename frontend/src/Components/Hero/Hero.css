@@ -1,10 +1,11 @@
 .hero {
     width: 100%;
     padding: 4rem 2rem;
-    background-color: #f8f5f2;
+    background-color: #e8e3de;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
 }
 
 .hero-content {
