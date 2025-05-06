@@ -13,43 +13,53 @@ export const Navbar = () => {
     <div className="navbar">
       <div className="nav-logo">
         <img src={logo} alt="logo" className="logo-image" />
-        <p>Gift Store</p>
       </div>
       <ul className="nav-menu">
         <li onClick={() => setMenu("shop")}>
           <Link style={{ textDecoration: "none" }} to="/">
-            Shop
+            Home
           </Link>
-          {menu === "shop" && <hr />}
+          {menu === "Home" && <hr />}
         </li>
         <li onClick={() => setMenu("mens")}>
           <Link style={{ textDecoration: "none" }} to="/mens">
-            Men
+            New Arrivals
           </Link>
           {menu === "mens" && <hr />}
         </li>
         <li onClick={() => setMenu("womens")}>
           <Link style={{ textDecoration: "none" }} to="/womens">
-            Women
+            Sale
           </Link>
           {menu === "womens" && <hr />}
         </li>
         <li onClick={() => setMenu("kids")}>
           <Link style={{ textDecoration: "none" }} to="/kids">
-            Kids
+            Room Inspirations
           </Link>
           {menu === "kids" && <hr />}
         </li>
       </ul>
       <div className="nav-login-cart">
-      {localStorage.getItem('auth-token')
-        ?<button onClick={()=>{localStorage.removeItem('auth-token');window.location.replace('/')}}>Logout</button>
-      : <Link to="/login"><button>Login</button></Link>}
-        
+        {localStorage.getItem("auth-token") ? (
+          <button
+            onClick={() => {
+              localStorage.removeItem("auth-token");
+              window.location.replace("/");
+            }}
+          >
+            Logout
+          </button>
+        ) : (
+          <Link to="/login">
+            <button>Login</button>
+          </Link>
+        )}
+
         <Link to="/cart">
           <img src={cart_icon} alt="Cart" />
         </Link>
-        
+
         <div className="nav-cart-count">{getTotalCartItems()}</div>
       </div>
     </div>
