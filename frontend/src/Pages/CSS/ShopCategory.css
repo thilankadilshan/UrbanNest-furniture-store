@@ -1,0 +1,141 @@
+/* ShopCategory.css */
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+  }
+  
+  .shop-category {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .shopcategory-banner {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .shopcategory-indexShort {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .shopcategory-indexShort p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .shopcategory-indexShort span {
+    font-weight: 600;
+    color: #000;
+  }
+  
+  .shopcategory-short {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s;
+    border-radius: 10PX;
+  }
+  
+  .shopcategory-short:hover {
+    color: #000;
+  }
+  
+  .shopcategory-short img {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .shopcategory-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  
+  .popular {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: 90vh;
+  }
+  
+  .popular h1 {
+    color: #171717;
+    font-size: 40px;
+    font-weight: 500;
+  }
+  
+  .popular hr {
+    width: 200px;
+    height: 4px;
+    border-radius: 10px;
+    background: #252525;
+  }
+  
+  .popular-item {
+    margin-top: 50px;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .shopcategory-loadmore {
+    margin: 2rem 0;
+    padding: 0.75rem 1.5rem;
+    background: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: fit-content;
+    align-self: center;
+  }
+  
+  .shopcategory-loadmore:hover {
+    background: #0056b3;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .shopcategory-indexShort {
+      padding: 1rem;
+    }
+  
+    .shopcategory-products {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  
+    .shopcategory-loadmore {
+      width: 100%;
+    }
+  }
+  
+  

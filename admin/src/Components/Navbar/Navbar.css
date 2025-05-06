@@ -1,0 +1,28 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 60px;
+    box-shadow: 0 1px 3px -2px #000;
+    margin-bottom: 1px;
+    background: white;
+}
+
+/* Navbar.css */
+.nav-logo {
+    width: 70px; /* Adjust the width as needed */
+    height: 70px; /* Maintains the aspect ratio */
+    max-width: 100%; /* Ensures it doesn't exceed the container width */
+  }
+
+.nav-profile {
+    width: 75px;
+}
+@media (max-width:800px){
+    .navbar{
+        padding: 15px 30px;
+    }
+    .nav-profile {
+        width: 60px;
+    }
+}
