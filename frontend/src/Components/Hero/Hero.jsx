@@ -1,6 +1,6 @@
 import React from "react";
 import "./Hero.css";
-import heroImage from "../Assets/hero_furniture.jpg"; // Replace with a cozy furniture image
+import heroImage from "../Assets/hero_furniture.jpg";
 
 const Hero = () => {
   return (
