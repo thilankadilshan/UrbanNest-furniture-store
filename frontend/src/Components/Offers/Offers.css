@@ -1,8 +1,9 @@
 .offers {
-    background-color: #fff7f0;
+    background-color: #fffedd;
     padding: 4rem 2rem;
     display: flex;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 .offers-content {
