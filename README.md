@@ -13,3 +13,9 @@ open new terminal
 cd banckend
 npm install
 npm start
+
+how to run admin panel..
+open new terminal
+cd admin
+npm install
+npm run dev
