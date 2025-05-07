@@ -58,3 +58,55 @@
     border-radius: 12px;
     object-fit: cover;
 }
+
+
+
+@media (max-width: 600px) {
+    .offers {
+        height: auto; /* Remove fixed height for mobile */
+        padding: 2rem 1rem;
+        margin-bottom: 30px;
+    }
+
+    .offers-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .offers-text {
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .offers-text h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .offers-text p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .offers-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .offers-image {
+        min-width: 100%;
+    }
+
+    /* Previous mobile styles */
+    .item {
+        width: 100%;
+        max-width: 295px;
+        margin: 0 auto;
+    }
+    .item p {
+        font-size: 13px;
+        margin: 3px 0;
+    }
+    
+}
+
