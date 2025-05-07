@@ -7,9 +7,9 @@ const Hero = () => {
     <section className="hero">
       <div className="hero-content">
         <div className="hero-text">
-          <h1>Style Your Home with Elegance</h1>
-          <p>Discover timeless furniture crafted for comfort and design.</p>
-          <button className="shop-now-btn">Shop Now</button>
+          <h1>Transform Your Space with Urban Nest Style</h1>
+          <p>Would you like variations that emphasize luxury, affordability, or sustainability?</p>
+          <button className="shop-now-btn">Discover more</button>
         </div>
         <div className="hero-image">
           <img src={heroImage} alt="Furniture Display" />

@@ -9,8 +9,7 @@ const Offers = () => {
         <div className="offers-text">
           <h2>Exclusive Offers Just for You</h2>
           <p>
-            Premium quality furniture from our bestsellers, now at special
-            prices.
+          Exclusive premium furniture from our top-selling collection, now available at discounted prices.
           </p>
           <button className="offers-btn">Explore Deals</button>
         </div>
