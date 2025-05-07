@@ -9,80 +9,66 @@ export const ThreeDDesignLanding = () => {
     length: "",
     height: "",
     color: "#ffffff",
-    selectedFurniture: [],
   });
+
   const navigate = useNavigate();
-
-  const furnitureOptions = ["Chair", "Table", "Sofa"];
-
-  const handleFurnitureChange = (item) => {
-    setRoom((prev) => {
-      const alreadySelected = prev.selectedFurniture.includes(item);
-      return {
-        ...prev,
-        selectedFurniture: alreadySelected
-          ? prev.selectedFurniture.filter((i) => i !== item)
-          : [...prev.selectedFurniture, item],
-      };
-    });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Ensure all dimensions are provided
+    if (!room.width || !room.length || !room.height) {
+      alert("Please enter all room dimensions.");
+      return;
+    }
+
     navigate("/roompreview", { state: room });
   };
 
   return (
-    <>
-      <div className="design-landing">
-        <form onSubmit={handleSubmit} className="design-form">
-          <h2>Enter Room Details</h2>
-          <input
-            type="number"
-            step="0.1"
-            placeholder="Width (ft)"
-            value={room.width}
-            onChange={(e) => setRoom({ ...room, width: e.target.value })}
-            required
-          />
-          <input
-            type="number"
-            step="0.1"
-            placeholder="Length (ft)"
-            value={room.length}
-            onChange={(e) => setRoom({ ...room, length: e.target.value })}
-            required
-          />
-          <input
-            type="number"
-            step="0.1"
-            placeholder="Height (ft)"
-            value={room.height}
-            onChange={(e) => setRoom({ ...room, height: e.target.value })}
-            required
-          />
-          <label>Wall Color:</label>
-          <input
-            type="color"
-            value={room.color}
-            onChange={(e) => setRoom({ ...room, color: e.target.value })}
-          />
-          <div className="furniture-selection">
-            <label>Select Furniture:</label>
-            {furnitureOptions.map((item) => (
-              <div key={item}>
-                <input
-                  type="checkbox"
-                  checked={room.selectedFurniture.includes(item)}
-                  onChange={() => handleFurnitureChange(item)}
-                />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-          <button type="submit">Proceed</button>
-        </form>
-      </div>
-    </>
+    <div className="design-landing">
+      <form onSubmit={handleSubmit} className="design-form">
+        <h2>Enter Room Dimensions</h2>
+
+        <label>Width (ft)</label>
+        <input
+          type="number"
+          step="0.1"
+          placeholder="e.g. 10.5"
+          value={room.width}
+          onChange={(e) => setRoom({ ...room, width: e.target.value })}
+          required
+        />
+
+        <label>Length (ft)</label>
+        <input
+          type="number"
+          step="0.1"
+          placeholder="e.g. 12.0"
+          value={room.length}
+          onChange={(e) => setRoom({ ...room, length: e.target.value })}
+          required
+        />
+
+        <label>Height (ft)</label>
+        <input
+          type="number"
+          step="0.1"
+          placeholder="e.g. 8.0"
+          value={room.height}
+          onChange={(e) => setRoom({ ...room, height: e.target.value })}
+          required
+        />
+
+        <label>Wall Color:</label>
+        <input
+          type="color"
+          value={room.color}
+          onChange={(e) => setRoom({ ...room, color: e.target.value })}
+        />
+
+        <button type="submit">Preview Room</button>
+      </form>
+    </div>
   );
 };
