@@ -15,7 +15,7 @@ const Popular = () => {
 
   return (
     <div className='popular'>
-      <h1>Popular Gift for Womens</h1>
+      <h1>Popular Designs </h1>
       <hr/>
       <div className="popular-item">
         {popularProducts.map((item,i)=>{
