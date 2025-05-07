@@ -12,7 +12,8 @@ import home_banner from './Components/Assets/banner_home.png';
 import Footer from './Components/Footer/Footer';
 import ShopContextProvider from './Context/ShopContext';
 import { DesignerLogin } from './Pages/DesignerLogin';
-// import ThreeDDesignLanding from './Pages/ThreeDDesignLanding'
+import { ThreeDDesignLanding } from './Pages/Designer/3DDesignLanding';
+import { RoomPreview } from './Pages/Designer/RoomPreview';
 import './App.css';
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<LoginSignup />} />
           <Route path="/designerlogin" element={<DesignerLogin />} />
-          {/* <Route path="/3ddesignlanding" element={<ThreeDDesignLanding />} /> */}
+          <Route path="/3ddesignlanding" element={<ThreeDDesignLanding />} />
+          <Route path="/roompreview" element={<RoomPreview />} />
         </Routes>
         <Footer />
       </BrowserRouter>
