@@ -60,3 +60,53 @@
     border-radius: 16px;
     object-fit: cover;
 }
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 2rem 1rem;
+        margin-bottom: 30px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .hero-text {
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-image {
+        min-width: 100%;
+    }
+
+    .shop-now-btn {
+        padding: 0.7rem 1.8rem;
+        font-size: 0.9rem;
+    }
+
+    /* Previous mobile styles */
+    .footer {
+        padding: 2rem 1.5rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    
+}
+
+
