@@ -8,7 +8,8 @@ import Furniture from "./Furniture";
 
 export const RoomPreview = () => {
   const { state } = useLocation();
-  const { selectedFurniture } = state;
+  const selectedFurniture = state?.selectedFurniture || [];
+
   const [target, setTarget] = useState("room"); // 'room' or 'furniture'
   const controlsRef = useRef();
 
