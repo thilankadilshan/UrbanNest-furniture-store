@@ -102,3 +102,173 @@
   font-size: 0.9rem;
   color: #ffffff;
 }
+
+@media (max-width: 600px) {
+  .footer {
+      padding: 2rem 1.5rem;
+  }
+
+  .footer-container {
+      flex-direction: column;
+      gap: 1.5rem;
+  }
+
+  .footer-logo-section,
+  .footer-links-section,
+  .footer-social-section {
+      min-width: 100%;
+      text-align: center;
+  }
+
+  .footer-logo {
+      margin: 0 auto 1rem;
+  }
+
+  .footer-links-section h4,
+  .footer-social-section h4 {
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+  }
+
+  .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+  }
+
+  .footer-links li {
+      margin-bottom: 0;
+  }
+
+  .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+  }
+
+  .footer-icons a {
+      margin-right: 0;
+  }
+
+  .footer-bottom {
+      margin-top: 1.5rem;
+  }
+
+  /* Previous mobile styles */
+  .descriptionbox {
+      margin: 60px 20px;
+  }
+
+  .descriptionbox-navigator {
+      flex-direction: column;
+  }
+
+  /* ... rest of your existing mobile styles ... */
+}
+
+/* Original CSS remains the same */
+.footer {
+  background-color: #4e4237;
+  padding: 3rem 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #bb3f3f;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-logo {
+  width: 150px;
+  margin-bottom: 1rem;
+}
+
+.footer-logo-section p {
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.footer-links-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-links-section h4 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ff0000;
+}
+
+.footer-social-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-social-section h4 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.footer-icons a {
+  margin-right: 1rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.footer-icons a:hover {
+  transform: scale(1.1);
+}
+
+.footer-icons img {
+  width: 28px;
+  height: 28px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footer-bottom hr {
+  border: none;
+  height: 1px;
+  background-color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.footer-bottom p {
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
