@@ -36,3 +36,38 @@
     transition: 0.6s;
   }
   
+  @media (max-width: 600px) {
+    .item {
+        width: 100%;
+        max-width: 295px; /* Maintains maximum size but allows shrinking */
+        margin: 0 auto; /* Centers the item on mobile */
+    }
+
+    .item p {
+        font-size: 13px;
+        margin: 3px 0;
+    }
+
+    .item-prices {
+        gap: 10px;
+    }
+
+    .item-price-new,
+    .item-price-old {
+        font-size: 14px;
+    }
+
+    /* Previous mobile styles */
+    .hero {
+        padding: 2rem 1rem;
+        margin-bottom: 30px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    
+}
+
