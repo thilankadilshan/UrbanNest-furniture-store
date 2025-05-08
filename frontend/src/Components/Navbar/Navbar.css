@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 100px; /* Fixed height for the navbar */
+    height: 100px;
+    /* Fixed height for the navbar */
     padding: 0 16px;
     box-shadow: 0 1px 3px -2px black;
 }
@@ -14,13 +15,15 @@
 }
 
 .logo-image {
-    height: 100px; /* Reduced logo image size */
+    height: 70px;
+    /* Reduced logo image size */
     width: auto;
 }
 
 .nav-logo p {
     color: #171717;
-    font-size: 24px; /* Adjusted size to fit better with reduced height */
+    font-size: 24px;
+    /* Adjusted size to fit better with reduced height */
     font-weight: 600;
 }
 
@@ -88,60 +91,65 @@
     color: white;
 }
 
-@media(max-width:1280px){
-    .navbar{
+@media(max-width:1280px) {
+    .navbar {
         padding: 12px 50px;
     }
-    .nav-logo img{
+
+    .nav-logo img {
         width: 40px;
     }
-    .nav-logo p{
+
+    .nav-logo p {
         font-size: 25px;
     }
-    .nav-menu{
+
+    .nav-menu {
         gap: 30px;
         font-size: 16px;
     }
-    .nav-login-cart{
+
+    .nav-login-cart {
         gap: 30px;
     }
-    .nav-login-cart button{
+
+    .nav-login-cart button {
         width: 120px;
         height: 45px;
         font-size: 16px;
 
     }
-    .nav-cart-count{
+
+    .nav-cart-count {
         margin-left: -40px;
         font-size: 12px;
 
     }
 
+}
+
+@media(max-width:1024px) {
+    .navbar {
+        padding: 12px 30px;
     }
-    @media(max-width:1024px){
-        .navbar{
-            padding: 12px 30px;
-        }
-        .nav-menu{
-            gap: 25px;
-            font-size: 14px;
 
-        }
-        .nav-login-cart button{
-            width: 80px;
-            height: 35px;
-            font-size: 14px;
+    .nav-menu {
+        gap: 25px;
+        font-size: 14px;
 
-        }
-        .nav-login-cart img{
-            width: 30px;
-        }
-        .nav-cart-count{
-            width: 18px;
-            height: 17px;
-
-        }
-    }  
+    }
 
 
 
+    }
+
+    .nav-login-cart img {
+        width: 30px;
+    }
+
+    .nav-cart-count {
+        width: 18px;
+        height: 18px;
+
+    }
+}

@@ -3,14 +3,18 @@ import "./NewsLetter.css";
 
 const NewsLetter = () => {
   return (
-    <div className="newsletter">
-      <h1>Get Exclusive Offer on Your Email</h1>
-      <p>Subscribe to our newsletter and stay update</p>
-      <div>
-        <input type="email" placeholder='Your Email id' />
-        <button>Subscribe</button>
+    <section className="newsletter">
+      <div className="newsletter-content">
+        <h2>Receive VIP Deals in Your Inbox</h2>
+        <p>
+        Sign up for our newsletter to get the latest styles, offers, and design tips!
+        </p>
+        <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
       </div>
-    </div>
+    </section>
   );
 };
 
