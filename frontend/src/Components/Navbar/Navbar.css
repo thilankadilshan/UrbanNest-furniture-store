@@ -3,7 +3,6 @@
     justify-content: space-around;
     align-items: center;
     height: 100px;
-    /* Fixed height for the navbar */
     padding: 0 16px;
     box-shadow: 0 1px 3px -2px black;
 }
@@ -16,14 +15,12 @@
 
 .logo-image {
     height: 70px;
-    /* Reduced logo image size */
     width: auto;
 }
 
 .nav-logo p {
     color: #171717;
     font-size: 24px;
-    /* Adjusted size to fit better with reduced height */
     font-weight: 600;
 }
 
@@ -91,6 +88,8 @@
     color: white;
 }
 
+/* -------- MEDIA QUERIES -------- */
+
 @media(max-width:1280px) {
     .navbar {
         padding: 12px 50px;
@@ -117,15 +116,12 @@
         width: 120px;
         height: 45px;
         font-size: 16px;
-
     }
 
     .nav-cart-count {
         margin-left: -40px;
         font-size: 12px;
-
     }
-
 }
 
 @media(max-width:1024px) {
@@ -136,11 +132,6 @@
     .nav-menu {
         gap: 25px;
         font-size: 14px;
-
-    }
-
-
-
     }
 
     .nav-login-cart img {
@@ -150,6 +141,5 @@
     .nav-cart-count {
         width: 18px;
         height: 18px;
-
     }
 }

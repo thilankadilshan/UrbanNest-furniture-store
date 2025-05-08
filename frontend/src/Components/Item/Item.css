@@ -1,4 +1,4 @@
-
+.item {
   background-color: #fff;
   border-radius: 12px;
   overflow: hidden;
@@ -61,4 +61,3 @@
   color: #999;
   text-decoration: line-through;
 }
-
