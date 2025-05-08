@@ -15,7 +15,6 @@ import Footer from './Components/Footer/Footer';
 import ShopContextProvider from './Context/ShopContext';
 import { DesignerLogin } from './Pages/DesignerLogin';
 import { ThreeDDesignLanding } from './Pages/Designer/3DDesignLanding';
-// import { RoomPreview } from './Pages/Designer/RoomPreview';
 import { RoomDesigner } from './Pages/Designer/RoomDesigner';
 import './App.css';
 
@@ -34,7 +33,6 @@ function App() {
           <Route path="/login" element={<LoginSignup />} />
           <Route path="/designerlogin" element={<DesignerLogin />} />
           <Route path="/3ddesignlanding" element={<ThreeDDesignLanding />} />
-          {/* <Route path="/roompreview" element={<RoomPreview />} /> */}
           <Route path="/roompreview" element={<RoomDesigner />} />
         </Routes>
         <Footer />
