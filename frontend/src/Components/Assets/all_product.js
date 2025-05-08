@@ -216,7 +216,7 @@ let all_product = [
 
   {
     id: 25,
-    name: "Kids test product 1",
+    name: "SALE test product 1",
     category: "kid",
     image: p25_img,
     new_price: 85.0,
@@ -224,7 +224,7 @@ let all_product = [
   },
   {
     id: 26,
-    name: "Kids test product 2",
+    name: "SALE test product 2",
     category: "kid",
     image: p26_img,
     new_price: 85.0,
@@ -232,7 +232,7 @@ let all_product = [
   },
   {
     id: 27,
-    name: "Kids test product 3",
+    name: "SALE test product 3",
     category: "kid",
     image: p27_img,
     new_price: 85.0,
@@ -240,7 +240,7 @@ let all_product = [
   },
   {
     id: 28,
-    name: "Kids test product 4",
+    name: "SALE test product 4",
     category: "kid",
     image: p28_img,
     new_price: 85.0,
@@ -248,7 +248,7 @@ let all_product = [
   },
   {
     id: 29,
-    name: "Kids test product 5",
+    name: "SALE test product 5",
     category: "kid",
     image: p29_img,
     new_price: 85.0,
@@ -256,7 +256,7 @@ let all_product = [
   },
   {
     id: 30,
-    name: "Kids test product 6",
+    name: "SALE test product 6",
     category: "kid",
     image: p30_img,
     new_price: 85.0,
@@ -264,7 +264,7 @@ let all_product = [
   },
   {
     id: 31,
-    name: "Kids test product 7",
+    name: "SALE test product 7",
     category: "kid",
     image: p31_img,
     new_price: 85.0,
@@ -272,7 +272,7 @@ let all_product = [
   },
   {
     id: 32,
-    name: "Kids test product 8",
+    name: "SALE test product 8",
     category: "kid",
     image: p32_img,
     new_price: 85.0,
@@ -280,7 +280,7 @@ let all_product = [
   },
   {
     id: 33,
-    name: "Kids test product 9",
+    name: "SALE test product 9",
     category: "kid",
     image: p33_img,
     new_price: 85.0,
@@ -288,7 +288,7 @@ let all_product = [
   },
   {
     id: 34,
-    name: "Kids test product 10",
+    name: "SALE test product 10",
     category: "kid",
     image: p34_img,
     new_price: 85.0,
@@ -296,7 +296,7 @@ let all_product = [
   },
   {
     id: 35,
-    name: "Kids test product 11",
+    name: "SALE test product 11",
     category: "kid",
     image: p35_img,
     new_price: 85.0,
