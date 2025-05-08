@@ -1,13 +1,14 @@
-import React, { useState, useContext } from "react"; // Ensure useContext is imported
+// src/Components/Navbar/Navbar.jsx
+import React, { useState, useContext } from "react";
 import "./Navbar.css";
 import logo from "../Assets/logo.png";
 import cart_icon from "../Assets/cart_icon.png";
 import { Link } from "react-router-dom";
-import { ShopContext } from "../../Context/ShopContext"; // Ensure ShopContext is imported
+import { ShopContext } from "../../Context/ShopContext";
 
 export const Navbar = () => {
   const [menu, setMenu] = useState("shop");
-  const { getTotalCartItems } = useContext(ShopContext); // Access the cart items count from context
+  const { getTotalCartItems } = useContext(ShopContext);
 
   return (
     <div className="navbar">
@@ -19,7 +20,7 @@ export const Navbar = () => {
           <Link style={{ textDecoration: "none" }} to="/">
             Home
           </Link>
-          {menu === "Home" && <hr />}
+          {menu === "shop" && <hr />}
         </li>
         <li onClick={() => setMenu("mens")}>
           <Link style={{ textDecoration: "none" }} to="/mens">
@@ -39,6 +40,12 @@ export const Navbar = () => {
           </Link>
           {menu === "kids" && <hr />}
         </li>
+        <li onClick={() => setMenu("designer")}>
+          <Link style={{ textDecoration: "none" }} to="/designerlogin">
+            3D Designer
+          </Link>
+          {menu === "designer" && <hr />}
+        </li>
       </ul>
       <div className="nav-login-cart">
         {localStorage.getItem("auth-token") ? (
@@ -55,11 +62,9 @@ export const Navbar = () => {
             <button>Login</button>
           </Link>
         )}
-
         <Link to="/cart">
           <img src={cart_icon} alt="Cart" />
         </Link>
-
         <div className="nav-cart-count">{getTotalCartItems()}</div>
       </div>
     </div>
