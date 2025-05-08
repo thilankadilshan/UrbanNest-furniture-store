@@ -1,22 +1,51 @@
+/* Root container for RoomDesigner */
 .room-designer-container {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
-    height: 90vh;
+    max-height: calc(100vh - 60px);
+    /* Adjust based on your footer height */
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
+/* Heading style */
+.room-designer-container h2 {
+    margin-bottom: 10px;
+}
+
+/* Canvas should take available space without overflow */
+canvas {
+    flex: 1;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 70vh;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    margin-bottom: 15px;
+}
+
+/* Controls section */
 .controls {
-    margin-top: 15px;
+    margin-top: auto;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    align-items: center;
+    padding-top: 10px;
+    overflow-x: auto;
 }
 
+/* Dropdown menus */
 .dropdown {
     padding: 8px;
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    min-width: 150px;
 }
 
+/* Buttons */
 button {
     padding: 8px 12px;
     background-color: #1caad9;
@@ -24,8 +53,14 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 button:hover {
     background-color: #178db8;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
