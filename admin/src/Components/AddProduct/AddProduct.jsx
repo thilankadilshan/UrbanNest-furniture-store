@@ -7,7 +7,7 @@ const AddProduct = () => {
   const [productDetails, setProductDetails] = useState({
     name: "",
     image: "",
-    category: "women",
+    category: "",
     new_price: "",
     old_price: "",
   });
