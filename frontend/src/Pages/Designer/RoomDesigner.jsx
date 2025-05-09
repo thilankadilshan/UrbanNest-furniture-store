@@ -1,6 +1,6 @@
 // src/Pages/Designer/RoomDesigner.jsx
 import React, { useRef, useState, Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import {
   OrbitControls,
   TransformControls,
@@ -10,6 +10,7 @@ import {
   Html,
 } from "@react-three/drei";
 import { useLocation, useNavigate } from "react-router-dom";
+import * as THREE from "three";
 import "./RoomDesigner.css";
 
 function Room({ scale, wallColor, roomRef }) {
@@ -45,7 +46,7 @@ export const RoomDesigner = () => {
 
   const [furnitures, setFurnitures] = useState([]);
   const [selectedObjectRef, setSelectedObjectRef] = useState(null);
-  const [selectedObjectId, setSelectedObjectId] = useState(null); // to track furniture id
+  const [selectedObjectId, setSelectedObjectId] = useState(null);
   const [transformMode, setTransformMode] = useState("translate");
 
   const roomRef = useRef();
@@ -64,24 +65,52 @@ export const RoomDesigner = () => {
 
   const handleRemoveSelected = () => {
     if (!selectedObjectRef) return;
-
-    // Don't allow deleting room
     if (selectedObjectRef === roomRef) return;
 
-    // Remove selected furniture
     setFurnitures(furnitures.filter((f) => f.id !== selectedObjectId));
 
-    // Clear selection
     setSelectedObjectRef(null);
     setSelectedObjectId(null);
   };
 
+  //  GET useThree() inside Canvas with component trick
+  const ScreenshotHelper = ({ setScreenshotFns }) => {
+    const { gl: renderer, scene, camera } = useThree();
+
+    // Save renderer/scene/camera into parent state ONCE
+    React.useEffect(() => {
+      setScreenshotFns({ renderer, scene, camera });
+    }, [renderer, scene, camera]);
+
+    return null;
+  };
+
+  // To store screenshot context refs
+  const [screenshotFns, setScreenshotFns] = useState(null);
+
   const downloadImage = () => {
-    const canvas = document.querySelector("canvas");
+    if (!screenshotFns) {
+      alert("Scene not ready yet!");
+      return;
+    }
+
+    const { renderer, scene, camera } = screenshotFns;
+
+    const prevEnv = scene.environment;
+    const prevBg = scene.background;
+    scene.environment = null;
+    scene.background = new THREE.Color("#ffffff");
+
+    renderer.render(scene, camera);
+
+    const dataURL = renderer.domElement.toDataURL("image/png");
     const link = document.createElement("a");
     link.download = "room-design.png";
-    link.href = canvas.toDataURL("image/png");
+    link.href = dataURL;
     link.click();
+
+    scene.environment = prevEnv;
+    scene.background = prevBg;
   };
 
   return (
@@ -89,6 +118,8 @@ export const RoomDesigner = () => {
       <h2>Room Designer</h2>
 
       <Canvas shadows camera={{ position: [5, 5, 5], fov: 50 }}>
+        <color attach="background" args={["#ffffff"]} />
+
         <Suspense
           fallback={
             <Html>
@@ -128,6 +159,9 @@ export const RoomDesigner = () => {
           )}
 
           <OrbitControls makeDefault />
+
+          {/* BRO — THIS SAFE WAY TO GET useThree INSIDE Canvas ✅ */}
+          <ScreenshotHelper setScreenshotFns={setScreenshotFns} />
         </Suspense>
       </Canvas>
 
@@ -148,6 +182,10 @@ export const RoomDesigner = () => {
           <option value="sofa.glb">Sofa</option>
           <option value="lamp.glb">Lamp</option>
           <option value="cabinet.glb">Cabinet</option>
+          <option value="longsofa.glb">long sofa</option>
+          <option value="sofa2.glb">sofa 2</option>
+          <option value="sofal.glb">Sofa L</option>
+          <option value="sofar.glb">sofa R</option>
         </select>
 
         {/* Select Object */}
@@ -192,7 +230,9 @@ export const RoomDesigner = () => {
         <button onClick={handleRemoveSelected} disabled={!selectedObjectId}>
           Remove Selected
         </button>
+
         <button onClick={downloadImage}>Download Image</button>
+
         <button onClick={() => navigate(-1)}>Go Back</button>
       </div>
     </div>

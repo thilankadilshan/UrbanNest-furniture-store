@@ -14,8 +14,8 @@ app.use(express.json());
 app.use(cors());
 
 // Database connection with MongoDB
-    mongoose.connect("mongodb+srv://thilanka2002:thilankadil@cluster0.n1v4c.mongodb.net/e-commerce");
-//  mongoose.connect("mongodb+srv://rashmikaprasad1:1765100@cluster0.ns8tq.mongodb.net/e-commerce");
+mongoose.connect("mongodb+srv://thilanka2002:thilankadil@cluster0.n1v4c.mongodb.net/e-commerce");
+// mongoose.connect("mongodb+srv://rashmikaprasad1:1765100@cluster0.ns8tq.mongodb.net/e-commerce");
 
 // API creation
 app.get("/", (req, res) => {
@@ -58,8 +58,9 @@ const Product = mongoose.model("Product", {
     },
     category: {
         type: String,
-        required: true },
-    
+        required: true
+    },
+
     new_price: {
         type: Number,
         required: true,
@@ -82,15 +83,14 @@ const Product = mongoose.model("Product", {
 app.post('/addproduct', async (req, res) => {
     let products = await Product.find({});
     let id;
-    
-    if(products.length>0)
-    {
+
+    if (products.length > 0) {
         let last_product_array = products.slice(-1);
         let last_product = last_product_array[0];
-        id = last_product.id+1;
+        id = last_product.id + 1;
     }
     else {
-        id=1;
+        id = 1;
     }
     const product = new Product({
 
@@ -103,7 +103,7 @@ app.post('/addproduct', async (req, res) => {
     });
 
     await product.save();
-    
+
     console.log("Saved:", product); // Log the saved product
 
     res.json({
@@ -113,18 +113,18 @@ app.post('/addproduct', async (req, res) => {
 });
 
 // create api for deleting product
-app.post('/removeproduct', async (req,res)=>{
-    await Product.findOneAndDelete({id:req.body.id});
+app.post('/removeproduct', async (req, res) => {
+    await Product.findOneAndDelete({ id: req.body.id });
     console.log("Removed");
     res.json({
-        success:true,
-        name:req.body.name
+        success: true,
+        name: req.body.name
     })
 })
 
 //creating a api for getting all products
-app.get('/allproducts',async (req,res) => {
-    let products = await Product.find ({});
+app.get('/allproducts', async (req, res) => {
+    let products = await Product.find({});
     console.log("All Products Fetched");
     res.send(products);
 })
@@ -139,86 +139,86 @@ app.listen(port, (error) => {
 });
 
 //shema creating for user model
-const users = mongoose.model('Users',{
-    name:{
-        type:String,
+const users = mongoose.model('Users', {
+    name: {
+        type: String,
     },
-    email:{
-        type:String,
-        unique:true,
+    email: {
+        type: String,
+        unique: true,
     },
-    password:{
-        type:String,
+    password: {
+        type: String,
     },
-    cartData:{
-        type:Object,
+    cartData: {
+        type: Object,
     },
-    date:{
-        type:Date,
-        default:Date.now,
+    date: {
+        type: Date,
+        default: Date.now,
     }
 })
 
 
 //creating endpoint for registering the user
-app.post('/signup',async(req,res)=>{
+app.post('/signup', async (req, res) => {
 
-    let check = await users.findOne({email: req.body.email });
+    let check = await users.findOne({ email: req.body.email });
     if (check) {
-        return res.status(400).json({success:false,errors:"existing user found with same email address"})
+        return res.status(400).json({ success: false, errors: "existing user found with same email address" })
 
     }
     let cart = {};
     for (let i = 0; i < 300; i++) {
-        cart[i]=0;
-        
+        cart[i] = 0;
+
     }
     const user = new users({
-        name:req.body.username,
-        email:req.body.email,
-        password:req.body.password,
-        cartData:cart,
+        name: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        cartData: cart,
     })
-    
+
     await user.save();
 
     const data = {
-        user:{
-            id:user.id
+        user: {
+            id: user.id
         }
     }
 
 
-    const token = jwt.sign(data,'secret_ecom');
-    res.json({success:true,token})
+    const token = jwt.sign(data, 'secret_ecom');
+    res.json({ success: true, token })
 })
 
 // creating endpoint user loging
-app.post('/login',async (req,res)=>{
-    let user = await users.findOne({email:req.body.email});
+app.post('/login', async (req, res) => {
+    let user = await users.findOne({ email: req.body.email });
     if (user) {
         const passCompare = req.body.password === user.password;
         if (passCompare) {
             const data = {
-                user:{
-                    id:user.id
+                user: {
+                    id: user.id
                 }
             }
-            const token = jwt.sign(data,'secret_ecom');
-            res.json({success:true,token});
+            const token = jwt.sign(data, 'secret_ecom');
+            res.json({ success: true, token });
         }
-        else{
-            res.json({success:false,error:"Wrong Password"});
+        else {
+            res.json({ success: false, error: "Wrong Password" });
         }
     }
-    else{
-        res.json({success:false,error:"Wrong Email Id"});
+    else {
+        res.json({ success: false, error: "Wrong Email Id" });
     }
 
 })
 
 // creating endpoint for newcollection data
-app.get('/newcollections' ,async (req,res)=>{
+app.get('/newcollections', async (req, res) => {
     let product = await Product.find({});
     let newcollection = product.slice(1).slice(-8);
     console.log("NewCollection Fetched");
@@ -226,58 +226,58 @@ app.get('/newcollections' ,async (req,res)=>{
 })
 
 //creating endpoint for popular in women section
-app.get('/popularinwomen',async (req,res)=>{
-    let products = await Product.find({category:"women"})
-    let popular_in_women = products.slice(0,4);
+app.get('/popularinwomen', async (req, res) => {
+    let products = await Product.find({ category: "women" })
+    let popular_in_women = products.slice(0, 4);
     console.log("Popular in women fetched");
     res.send(popular_in_women);
 })
 
 
 //creating middleware to fetch user 
-const fetchuser = async (req,res,next)=>{
+const fetchuser = async (req, res, next) => {
     const token = req.header('auth-token');
     if (token) {
-        res.status(401).send({errors:"Please authenticate using a valid token"})
+        res.status(401).send({ errors: "Please authenticate using a valid token" })
     }
-    else{
+    else {
         try {
-            const data = jwt.verify(token,'secret_ecom');
+            const data = jwt.verify(token, 'secret_ecom');
             req.user = data.user;
             next();
         } catch (error) {
-            res.status(401).send({errors:"Please authenticate using a valid token"})
+            res.status(401).send({ errors: "Please authenticate using a valid token" })
 
         }
-    
+
     }
 }
 
 // creating endpoint for adding products in cartdata
-app.post('./addtocart',fetchuser,async (req,res)=>{
-    console.log("Added",req.body.itemsId);
-    let userData = await users.findOne({_id:req.user.id});
+app.post('./addtocart', fetchuser, async (req, res) => {
+    console.log("Added", req.body.itemsId);
+    let userData = await users.findOne({ _id: req.user.id });
     userData.cartData[req.body.itemsId] += 1;
-    await users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+    await users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
     res.send("Added")
 
 })
 
 // creating endpoint to remove product from cart data
-app.post('/removefromcart',fetchuser,async (req,res)=>{
-    console.log("Removed",req.body.itemsId);
-    let userData = await users.findOne({_id:req.user.id});
-    if(userData.cartData[req.body.itemsId]>0)
-    userData.cartData[req.body.itemsId] -= 1;
-    await users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+app.post('/removefromcart', fetchuser, async (req, res) => {
+    console.log("Removed", req.body.itemsId);
+    let userData = await users.findOne({ _id: req.user.id });
+    if (userData.cartData[req.body.itemsId] > 0)
+        userData.cartData[req.body.itemsId] -= 1;
+    await users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
     res.send("Removed")
 
 
 })
 
 // creating endpoint to get cartdata
-app.post('/getcart',fetchuser,async (req,res)=>{
+app.post('/getcart', fetchuser, async (req, res) => {
     console.log("GetCart");
-    let userData = await users.findOne({_id:req>user.id});
+    let userData = await users.findOne({ _id: req > user.id });
     res.json(userData.cartData);
 })
