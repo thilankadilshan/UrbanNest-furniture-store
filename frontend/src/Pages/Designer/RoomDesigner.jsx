@@ -160,7 +160,7 @@ export const RoomDesigner = () => {
 
           <OrbitControls makeDefault />
 
-          {/* BRO — THIS SAFE WAY TO GET useThree INSIDE Canvas ✅ */}
+          {/* BRO — THIS SAFE WAY TO GET useThree INSIDE Canvas  */}
           <ScreenshotHelper setScreenshotFns={setScreenshotFns} />
         </Suspense>
       </Canvas>
